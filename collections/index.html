@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Collections</title>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+  <script type="text/javascript" src="model.js"></script>
+  <script type="text/javascript" src="view-model.js"></script>
+</head>
+<body>
+  <h2>Your seat reservations</h2>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Passenger name</th>
+        <th>Meal</th>
+        <th>Surcharge</th>
+      </tr>
+    </thead>
+    <tbody data-bind="foreach: seats">
+      <tr>
+        <td data-bind="text: name"></td>
+        <td data-bind="text: meal().mealName"></td>
+        <td data-bind="text: meal().price"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
