@@ -1,4 +1,4 @@
 function AppViewModel() {
-  this.firstName = "Bert";
-  this.lastName = "Bertington";
+  this.firstName = ko.observable("Bert");
+  this.lastName = ko.observable("Bertington");
 }
