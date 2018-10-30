@@ -7,4 +7,8 @@ function AppViewModel() {
     },
     this
   );
+  this.capitalizeLastName = function() {
+    var currentVal = this.lastName();
+    this.lastName(currentVal.toUpperCase());
+  };
 }
