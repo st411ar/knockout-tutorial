@@ -15,6 +15,7 @@
         <th>Passenger name</th>
         <th>Meal</th>
         <th>Surcharge</th>
+        <th></th>
       </tr>
     </thead>
     <tbody data-bind="foreach: seats">
@@ -31,6 +32,9 @@
           </select>
         </td>
         <td data-bind="text: formattedPrice"></td>
+        <td>
+          <a href="#" data-bind="click: $root.removeSeat">Remove</a>
+        </td>
       </tr>
     </tbody>
   </table>
