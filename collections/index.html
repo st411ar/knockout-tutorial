@@ -20,8 +20,17 @@
     <tbody data-bind="foreach: seats">
       <tr>
         <td><input data-bind="value: name" /></td>
-        <td><select data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'"></select></td>
-        <td data-bind="text: meal().price"></td>
+        <td>
+          <select
+              data-bind="
+                  options: $root.availableMeals,
+                  value: meal,
+                  optionsText: 'mealName'
+              "
+          >
+          </select>
+        </td>
+        <td data-bind="text: formattedPrice"></td>
       </tr>
     </tbody>
   </table>
