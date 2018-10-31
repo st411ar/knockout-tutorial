@@ -39,6 +39,10 @@
     </tbody>
   </table>
 
+  <h3 data-bind="visible: totalSurcharge() > 0">
+    Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span>
+  </h3>
+
   <button data-bind="click: addSeat">Reserve another seat</button>
 
   <script type="text/javascript" src="script.js"></script>
