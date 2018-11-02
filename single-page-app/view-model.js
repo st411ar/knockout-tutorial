@@ -27,8 +27,6 @@ function WebmailViewModel() {
     location.hash = mail.folder + '/' + mail.id;
   }
 
-  self.goToFolder('Inbox');
-
   Sammy(function() {
     this.get('#:folder', function() {
       var folder = this.params.folder;
@@ -51,6 +49,10 @@ function WebmailViewModel() {
       var data = { mailId: mailId };
       var callback = self.chosenMailData;
       self.requestWebApi(data, callback);
+    });
+
+    this.get('', function() {
+      this.app.runRoute('get', '#Inbox');
     });
   }).run();
 }
