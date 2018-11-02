@@ -29,7 +29,11 @@ function WebmailViewModel() {
 
   self.goToFolder = function(folder) {
     self.chosenFolderId(folder);
-    self.chosenFolderData(ajaxStub(folder));
+
+    var url = 'http://learn.knockoutjs.com/mail';
+    var data = { folder: folder };
+    var callback = self.chosenFolderData;
+    $.get(url, data, callback);
   }
 
   self.goToFolder('Inbox');
