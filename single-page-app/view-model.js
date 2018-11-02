@@ -16,6 +16,8 @@ function ajaxStub(folder) {
 function WebmailViewModel() {
   var self = this;
 
+  self.webApiUrl = 'http://learn.knockoutjs.com/mail';
+
   self.folders = [
     "Inbox",
     "Archive",
@@ -24,16 +26,30 @@ function WebmailViewModel() {
   ];
 
   self.chosenFolderId = ko.observable();
-
   self.chosenFolderData = ko.observable();
+  self.chosenMailData = ko.observable();
+
+
+  self.requestWebApi = function(data, callback) {
+    $.get(self.webApiUrl, data, callback);
+  }
 
   self.goToFolder = function(folder) {
     self.chosenFolderId(folder);
+    self.chosenMailData(null);
 
-    var url = 'http://learn.knockoutjs.com/mail';
     var data = { folder: folder };
     var callback = self.chosenFolderData;
-    $.get(url, data, callback);
+    self.requestWebApi(data, callback);
+  }
+
+  self.goToMail = function(mail) {
+    self.chosenFolderId(mail.folder);
+    self.chosenFolderData(null);
+
+    var data = { mailId: mail.id };
+    var callback = self.chosenMailData;
+    self.requestWebApi(data, callback);
   }
 
   self.goToFolder('Inbox');
