@@ -29,7 +29,10 @@ ko.bindingHandlers.starRating = {
       $(this).hover(
         function() { $(this).prevAll().add(this).addClass("hoverChosen") },
         function() { $(this).prevAll().add(this).removeClass("hoverChosen") }
-      );
+      ).click(function() {
+        var observable = valueAccessor();
+        observable(index + 1);
+      });
     });
   },
   update: function(element, valueAccessor) {
