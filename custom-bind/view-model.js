@@ -17,7 +17,22 @@ ko.bindingHandlers.jqButton = {
     var currentValue = valueAccessor();
     $(element).button("option", "disabled", currentValue.enable === false);
   }
-}
+};
+
+ko.bindingHandlers.starRating = {
+  init: function(element, valueAccessor) {
+    $(element).addClass("starRating");
+    for (var i = 0; i < 5; i++) {
+      $("<span>").appendTo(element);
+    }
+  },
+  update: function(element, valueAccessor) {
+    var observable = valueAccessor();
+    $("span", element).each(function(index) {
+      $(this).toggleClass("chosen", index < observable())
+    });
+  }
+};
 
 function Answer(text) {
   this.answerText = text;
