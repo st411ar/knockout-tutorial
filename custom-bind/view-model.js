@@ -9,6 +9,12 @@ ko.bindingHandlers.fadeVisible = {
   }
 };
 
+ko.bindingHandlers.jqButton = {
+  init: function(element) {
+    $(element).button();
+  }
+}
+
 function Answer(text) {
   this.answerText = text;
   this.points = ko.observable(1);
