@@ -25,10 +25,12 @@ function WebmailViewModel() {
 
   self.chosenFolderId = ko.observable();
 
-  self.chosenFolderData = ko.observable(ajaxStub());
+  self.chosenFolderData = ko.observable();
 
   self.goToFolder = function(folder) {
     self.chosenFolderId(folder);
     self.chosenFolderData(ajaxStub(folder));
   }
+
+  self.goToFolder('Inbox');
 }
