@@ -44,8 +44,7 @@
 
   <button
       data-bind="
-          jqButton,
-          enable: pointsUsed() <= pointsBudget,
+          jqButton: { enable: pointsUsed() <= pointsBudget },
           click: save
       "
   >
