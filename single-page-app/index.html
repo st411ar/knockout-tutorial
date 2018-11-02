@@ -38,8 +38,8 @@
       </tbody>
   </table>
 
-  <div data-bind="with: chosenMailData">
-    <div>
+  <div class="viewMail" data-bind="with: chosenMailData">
+    <div class="mailInfo">
       <h1 data-bind="text: subject"></h1>
       <p>
         <label>From</label>:
@@ -54,7 +54,7 @@
         <span data-bind="text: date"></span>
       </p>
     </div>
-    <p data-bind="html: messageContent"></p>
+    <p class="message" data-bind="html: messageContent"></p>
   </div>
 
   <script src="script.js"></script>
