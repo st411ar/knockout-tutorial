@@ -25,4 +25,9 @@ function TaskListViewModel() {
   self.removeTask = function(task) {
     self.tasks.remove(task);
   };
+
+  $.getJSON('http://learn.knockoutjs.com/tasks', function(allData) {
+    var mappedTasks = $.map(allData, function(item) { return new Task(item); });
+    self.tasks(mappedTasks);
+  });
 }
